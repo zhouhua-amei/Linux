@@ -1,0 +1,13 @@
+# firewalld使用 参考：https://www.cnblogs.com/davidshen/p/8146002.html
+
+firewalld-cmd --list-all
+
+firewalld-cmd --reload
+firewalld-cmd --permanent --add-port=8081/tcp
+firewalld-cmd --add-service=http
+firewalld-cmd --remove-service=http
+systemctl restart firewalld
+firewalld-cmd --remove-interface=eth1 --zone=public
+firewalld-cmd --add-source=xxxx
+
+firewalld-cmd --set-default-zone --get-default-zone --get-zones 
